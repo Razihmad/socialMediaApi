@@ -16,3 +16,13 @@ class Post(models.Model):
     title = models.CharField(max_length=1000)
     description = models.CharField(max_length=100000)
     createdTime = models.DateTimeField(default=datetime.now())
+    
+    def __str__(self):
+        return self.user.username
+        
+
+class Like(models.Model):
+    post = models.OneToOneField(Post,on_delete=models.CASCADE,related_name="post")
+    likes = models.IntegerField(default=0) 
+
+    

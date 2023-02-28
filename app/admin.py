@@ -9,3 +9,8 @@ class UserInfoAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = ['user','title']
     
+    
+@admin.register(Like)
+class LikeAdmin(admin.ModelAdmin):
+    list_display = ['post','likes']
+    
