@@ -5,3 +5,4 @@ class UserInfo(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="user")
     followers = models.IntegerField()
     followings = models.IntegerField()
+
