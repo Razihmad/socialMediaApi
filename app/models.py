@@ -18,11 +18,17 @@ class Post(models.Model):
     createdTime = models.DateTimeField(default=datetime.now())
     
     def __str__(self):
-        return self.user.username
+        return str(self.pk)
         
 
 class Like(models.Model):
     post = models.OneToOneField(Post,on_delete=models.CASCADE,related_name="post")
     likes = models.IntegerField(default=0) 
 
+
     
+class Comment(models.Model):
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name="postBy")
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="commentedBy")
+    content = models.CharField(max_length=10000)
+
